@@ -6,9 +6,20 @@ const buttons = document.querySelectorAll("#buttons-container button");
 // Application logic
 class Calculator {
     constructor(previousOperationText, currentOperationText) {
-        this.previousOperationText = previousOperationText // Value displayed on screen
-        this.currentOperationText = currentOperationText // Value displayed on screen
-        this.currentOperation = "" // Value entered by the user
+        this.previousOperationText = previousOperationText; // Value displayed on screen
+        this.currentOperationText = currentOperationText; // Value displayed on screen
+        this.currentOperation = ""; // Value entered by the user
+    }
+
+    // Add digit on calculator screen
+    addDigit(digit) {
+        this.currentOperation = digit;
+        this.updateScreen()
+    }
+
+    // Change values of the calculator screen
+    updateScreen() {
+        this.currentOperationText.innerText += this.currentOperation;
     }
 }
 
@@ -25,6 +36,7 @@ buttons.forEach((btn) => {
         if (+value >= 0 || value === ".") {
             // Try to convert the received value to a number
             console.log(value);
+            calc.addDigit(value);
 
         } else {
             console.log("Operation: " + value);
