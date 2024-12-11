@@ -1,12 +1,19 @@
 // Access HTML elements
-const previousOperation = document.querySelector("#previous-operation");
+const previousOperationText = document.querySelector("#previous-operation");
 const currentOperationText = document.querySelector("#current-operation");
 const buttons = document.querySelectorAll("#buttons-container button");
 
 // Application logic
 class Calculator {
-
+    constructor(previousOperationText, currentOperationText) {
+        this.previousOperationText = previousOperationText // Value displayed on screen
+        this.currentOperationText = currentOperationText // Value displayed on screen
+        this.currentOperation = "" // Value entered by the user
+    }
 }
+
+// Object instantiation
+const calc = new Calculator(previousOperationText, currentOperationText);
 
 // Events that will be used for the calculator to work
 buttons.forEach((btn) => {
